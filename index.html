@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Mechanic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="overlay"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Welcome to Your Mobile Mechanic</h1>
+            <p>Quality automotive services at your convenience.</p>
+            <button onclick="scrollToContact()">Contact Us</button>
+        </div>
+    </header>
+   
+    <main>
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We offer a wide range of automotive services to meet all your needs.</p>
+            <div class="services-container">
+                <div class="service-card">
+                    <img src="images/oil.png" alt="Oil Change Icon">
+                    <h3>Oil Change</h3>
+                    <p>Regular oil changes to keep your engine running smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/brakes.png" alt="Brake Service Icon">
+                    <h3>Brake Service</h3>
+                    <p>Expert brake inspection, repair, and replacement services.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/airCon.png" alt="AC Service Icon">
+                    <h3>AC Service</h3>
+                    <p>Keep your vehicle cool with our comprehensive AC services.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/suspension.png" alt="Suspension Repair Icon">
+                    <h3>Suspension Repair</h3>
+                    <p>Ensure a smooth ride with our suspension repair services.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/battery.png" alt="Battery Replacement Icon">
+                    <h3>Battery Replacement</h3>
+                    <p>Quick and reliable battery replacement services.</p>
+                </div>
+                <div class="service-card">
+                    <img src="images/engine.png" alt="Engine Diagnostics Icon">
+                    <h3>Engine Diagnostics</h3>
+                    <p>Accurate diagnostics to identify and fix engine issues.</p>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Learn more about our team and our mission to provide the best mobile mechanic services.</p>
+            <!-- Add more content about the company here -->
+        </section>
+    </main>
+    <footer id="contact">
+        <h2>Contact Us</h2>
+        <p>Reach out to us for more information or to schedule an appointment.</p>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <p>&copy; 2024 Mobile Mechanic. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
