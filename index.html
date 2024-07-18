@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Mechanic</title>
+    <title>M.A.C.E - MY Auto Care Expert</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="overlay"></div>
         <nav>
+            <div class="logo-container">
+                <img src="images/logo.png" alt="M.A.C.E Logo" class="logo">
+                <div class="company-name">
+                    <h1>M.A.C.E</h1>
+                    <p>MY Auto Care Expert</p>
+                </div>
+            </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -18,7 +26,7 @@
             </ul>
         </nav>
         <div class="hero">
-            <h1>Welcome to Your Mobile Mechanic</h1>
+            <h1>Welcome to M.A.C.E</h1>
             <p>Quality automotive services at your convenience.</p>
             <button onclick="scrollToContact()">Contact Us</button>
         </div>
@@ -63,8 +71,10 @@
         </section>
         <section id="about">
             <h2>About Us</h2>
-            <p>Learn more about our team and our mission to provide the best mobile mechanic services.</p>
-            <!-- Add more content about the company here -->
+            <div class="about-content">
+                <img src="images/headshot.jpg" alt="Matthew Mace" class="about-image">
+                <p>Hi! I'm <span>Matthew Mace</span>, an experienced mechanic with over 20 years in the industry, including work at a Fortune 100 dealership. My goal is to offer you affordable, convenient automotive services without the high costs and impersonal experiences often associated with dealers. From routine maintenance to complex repairs, I've got you covered. Thank you for considering our mobile mechanic service. Let's keep your vehicle in top shape, stress-free.</p>
+            </div>
         </section>
     </main>
     <footer id="contact">
@@ -79,7 +89,7 @@
             <textarea id="message" name="message" required></textarea>
             <button type="submit">Send</button>
         </form>
-        <p>&copy; 2024 Mobile Mechanic. All rights reserved.</p>
+        <p>&copy; 2024 M.A.C.E - MY Auto Care Expert. All rights reserved.</p>
     </footer>
     <script src="scripts.js"></script>
 </body>
