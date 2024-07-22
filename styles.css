@@ -131,6 +131,33 @@ nav:hover {
     .menu-icon {
         display: block;
     }
+
+    .hero-content {
+        padding: 1rem;
+        margin-top: 80px; 
+    }
+    .hero h1 {
+        font-size: 2rem; 
+    }
+    .hero p {
+        font-size: 1rem; 
+    }
+    .social-media {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; /* Center-align text */
+    }
+    .about-image {
+        margin-bottom: 20px; /* Add margin-bottom to separate image from text */
+    }
+    #about p {
+        text-align: justify; /* Justify text for better readability */
+    }
 }
 
 .hero {
@@ -147,7 +174,7 @@ nav:hover {
 .hero-content {
     max-width: 800px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(236, 236, 236, 0.8);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     animation: slideIn 1s ease-in-out;
