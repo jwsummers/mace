@@ -281,9 +281,6 @@ section {
     transition: transform 0.3s;
 }
 
-#services:hover {
-    transform: scale(1.02);
-}
 
 #services h2 {
     font-size: 36px;
@@ -299,11 +296,14 @@ section {
 }
 
 .service-card {
+    position: relative;
+    perspective: 1000px;
+    width: 300px;
+    height: 400px; /* Adjust height as needed */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
-    width: 300px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -330,6 +330,47 @@ section {
 .service-card p {
     font-size: 16px;
     color: #666;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.service-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
+
+.info-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ccc;
+    color: #f71137f6;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: large;
+}
+
+.info-button:focus {
+    outline: none;
 }
 
 #about {

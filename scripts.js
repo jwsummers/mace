@@ -2,7 +2,6 @@ function scrollToContact() {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Ensure the document is fully loaded
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll("nav ul li a");
 
@@ -36,5 +35,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     navItems.forEach(item => {
         item.addEventListener('click', closeMenu);
+    });
+
+    // Flip card functionality
+    const infoButtons = document.querySelectorAll('.info-button');
+    infoButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const serviceCard = this.closest('.service-card');
+            serviceCard.classList.toggle('flipped');
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        const flippedCards = document.querySelectorAll('.service-card.flipped');
+        flippedCards.forEach(card => {
+            card.classList.remove('flipped');
+        });
     });
 });

@@ -30,7 +30,7 @@
         </nav>
         <div class="hero">
             <div class="hero-content">
-                <h1>Welcome to Your Mobile Mechanic</h1>
+                <h1>Welcome to Your Auto Care Expert</h1>
                 <p>Quality automotive services at your convenience.</p>
                 <button onclick="scrollToContact()">Contact Us</button>
                 <div class="social-media">
@@ -51,34 +51,82 @@
             <p>We offer a wide range of automotive services to meet all your needs.</p>
             <div class="services-container">
                 <div class="service-card">
-                    <img src="images/oil.png" alt="Oil Change Icon">
-                    <h3>Oil Change</h3>
-                    <p>Regular oil changes to keep your engine running smoothly.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/oil.png" alt="Oil Change Icon">
+                            <h3>Oil Change</h3>
+                            <p>Regular oil changes to keep your engine running smoothly.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our oil change service includes replacing the engine oil and filter, as well as topping off all necessary fluids to ensure your engine runs smoothly.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <img src="images/brakes.png" alt="Brake Service Icon">
-                    <h3>Brake Service</h3>
-                    <p>Expert brake inspection, repair, and replacement services.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/brakes.png" alt="Brake Service Icon">
+                            <h3>Brake Service</h3>
+                            <p>Expert brake inspection, repair, and replacement services.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our brake service involves a comprehensive inspection of the braking system, including brake pads, rotors, and fluid, ensuring optimal stopping power and safety.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <img src="images/airCon.png" alt="AC Service Icon">
-                    <h3>AC Service</h3>
-                    <p>Keep your vehicle cool with our comprehensive AC services.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/airCon.png" alt="AC Service Icon">
+                            <h3>AC Service</h3>
+                            <p>Keep your vehicle cool with our comprehensive AC services.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our AC service covers a thorough inspection and servicing of the air conditioning system, including refrigerant top-up, leak detection, and component checks to keep your vehicle cool.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <img src="images/suspension.png" alt="Suspension Repair Icon">
-                    <h3>Suspension Repair</h3>
-                    <p>Ensure a smooth ride with our suspension repair services.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/suspension.png" alt="Suspension Repair Icon">
+                            <h3>Suspension Repair</h3>
+                            <p>Ensure a smooth ride with our suspension repair services.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our suspension repair services includes diagnosing driveability and noise concerns as well as issues with shocks, struts, and other suspension components to provide a smooth and comfortable ride.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <img src="images/battery.png" alt="Battery Replacement Icon">
-                    <h3>Battery Replacement</h3>
-                    <p>Quick and reliable battery replacement services.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/battery.png" alt="Battery Replacement Icon">
+                            <h3>Battery Replacement</h3>
+                            <p>Qucik and reliable battery replacement services.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our battery replacement services includes ability for full diagnostic of the starting and charging system, including alternator and starter repair, to ensure your vehicle starts reliably.</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="service-card">
-                    <img src="images/engine.png" alt="Engine Diagnostics Icon">
-                    <h3>Engine Diagnostics</h3>
-                    <p>Accurate diagnostics to identify and fix engine issues.</p>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="images/engine.png" alt="Engine Diagnostics Icon">
+                            <h3>Engine Diagnostics</h3>
+                            <p>Accurate diagnostics to identify and fix engine issues.</p>
+                            <button class="info-button">+</button>
+                        </div>
+                        <div class="card-back">
+                            <p>Our engine diagnostics involves using advanced tools to identify and fix engine issues as well as Check Engine Light diagnostics, ensuring your vehicle runs efficiently and preventing potential breakdowns.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -86,7 +134,7 @@
             <h2>About Us</h2>
             <div class="about-content">
                 <img src="images/headshot.jpg" alt="Matthew Mace" class="about-image">
-                <p>Hi! I'm <span>Matthew Mace</span>, an experienced mechanic with over 20 years in the industry, including work at a Fortune 100 dealership. My goal is to offer you affordable, convenient automotive services without the high costs and impersonal experiences often associated with dealers. From routine maintenance to complex repairs, I've got you covered. Thank you for considering our mobile mechanic service. Let's keep your vehicle in top shape, stress-free.</p>
+                <p>Hi! I'm <span>Matthew Mace</span>, an experienced mechanic with over 20 years in the industry, including work at a Fortune 100 dealership. My goal is to offer you affordable, convenient automotive services without the high costs and impersonal experiences often associated with dealers. From routine maintenance to complex repairs, I've got you covered. Thank you for considering our auto care expert services. Let's keep your vehicle in top shape, stress-free.</p>
             </div>
         </section>
     </main>
@@ -96,13 +144,23 @@
         <form>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
+        
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
+        
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number" required>
+        
+            <label for="vin">VIN Number:</label>
+            <input type="text" id="vin" name="vin" pattern="[A-HJ-NPR-Z0-9]{17}" title="Enter a valid 17-character VIN" minlength="17" maxlength="17">
+        
             <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" required placeholder="Please provide a detailed description of the problem or service required."></textarea>
+        
             <button type="submit">Send</button>
         </form>
-        <p>&copy; 2024 M.A.C.E - MY Auto Care Expert. All rights reserved.</p>
+        
+        <p>&copy; 2024 M.A.C.E - MY Auto Care Expert LLC. All rights reserved.</p>
     </footer>
     <script src="scripts.js"></script>
 </body>
