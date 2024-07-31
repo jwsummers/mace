@@ -43,14 +43,47 @@ document.addEventListener("DOMContentLoaded", function() {
         button.addEventListener('click', function(event) {
             event.stopPropagation();
             const serviceCard = this.closest('.service-card');
-            serviceCard.classList.toggle('flipped');
+            serviceCard.classList.add('flipped');
         });
     });
 
-    document.addEventListener('click', function(event) {
-        const flippedCards = document.querySelectorAll('.service-card.flipped');
-        flippedCards.forEach(card => {
-            card.classList.remove('flipped');
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('flipped');
         });
     });
 });
+
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        vin: document.getElementById('vin').value,
+        message: document.getElementById('message').value,
+    };
+
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Email sent successfully!');
+                document.getElementById('contact-form').reset();
+            } else {
+                alert('Error sending email.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error sending email.');
+        });
+});
+
