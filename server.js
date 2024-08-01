@@ -2,6 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
+import cors from 'cors';
+
+// Enable CORS
+app.use(cors());
+
 
 dotenv.config(); // Load environment variables
 

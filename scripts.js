@@ -66,7 +66,8 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         message: document.getElementById('message').value,
     };
 
-    fetch('/send-email', {
+    fetch('https://myautocareexpert.com/send', {
+
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
