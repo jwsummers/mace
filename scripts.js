@@ -1,3 +1,7 @@
+function scrollToContact() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll("nav ul li a");
 
