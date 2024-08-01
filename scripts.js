@@ -69,8 +69,9 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
         },
         body: JSON.stringify(formData),
     })
-    .then(response => {
-        if (response.ok) {
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Email sent successfully') {
             alert('Email sent successfully!');
             document.getElementById('contact-form').reset();
         } else {
