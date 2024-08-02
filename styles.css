@@ -360,6 +360,25 @@ section {
     padding: 20px;
 }
 
+/* Ensure smooth transition visibility for mobile */
+.card-front, .card-back {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* For Safari */
+}
+
+/* Additional adjustments for the front face */
+.service-card.flipped .card-front {
+    visibility: hidden;
+    transition-delay: 0.3s; /* Adjust this if necessary */
+}
+
+/* Ensure the back face is visible during the flip */
+.service-card.flipped .card-back {
+    visibility: visible;
+    transition-delay: 0.3s; /* Adjust this if necessary */
+}
+
+
 .info-button {
     position: absolute;
     top: 10px;
