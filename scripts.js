@@ -54,10 +54,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    card.addEventListener('touchend', function() {
-        setTimeout(() => {
-            this.classList.remove('flipped');
-        }, 3000); // Delay to allow the user to read the content
+    // Flip card functionality for mobile
+    serviceCards.forEach(card => {
+        let touchTimer;
+        card.addEventListener('touchstart', function() {
+            this.classList.add('flipped');
+        });
+
+        card.addEventListener('touchend', function() {
+            clearTimeout(touchTimer);
+            touchTimer = setTimeout(() => {
+                this.classList.remove('flipped');
+            }, 3000); // Delay to allow the user to read the content
+        });
+
+        card.addEventListener('touchmove', function() {
+            clearTimeout(touchTimer);
+            touchTimer = setTimeout(() => {
+                this.classList.remove('flipped');
+            }, 3000); // Delay to allow the user to read the content
+        });
     });
 });
 
