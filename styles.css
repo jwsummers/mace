@@ -281,7 +281,6 @@ section {
     transition: transform 0.3s;
 }
 
-
 #services h2 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -348,8 +347,10 @@ section {
 .card-front, .card-back {
     position: absolute;
     width: 100%;
+    height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
+    background-color: #fff; /* Ensure both sides have a background color */
 }
 
 .card-back {
@@ -383,12 +384,11 @@ section {
     }
 }
 
-
 .info-button, .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #ccc; 
+    background: #ccc;
     color: #f71137f6;
     border: none;
     border-radius: 50%;
@@ -401,6 +401,7 @@ section {
 .info-button:focus {
     outline: none;
 }
+
 
 #about {
     padding: 50px 20px;
