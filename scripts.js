@@ -53,6 +53,12 @@ document.addEventListener("DOMContentLoaded", function() {
             this.classList.remove('flipped');
         });
     });
+
+    card.addEventListener('touchend', function() {
+        setTimeout(() => {
+            this.classList.remove('flipped');
+        }, 3000); // Delay to allow the user to read the content
+    });
 });
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
