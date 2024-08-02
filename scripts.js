@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Flip card functionality
     const infoButtons = document.querySelectorAll('.info-button');
+    const closeButtons = document.querySelectorAll('.close-button');
+    const serviceCards = document.querySelectorAll('.service-card');
+
     infoButtons.forEach(button => {
         button.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -47,34 +50,42 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseleave', function() {
-            this.classList.remove('flipped');
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const serviceCard = this.closest('.service-card');
+            serviceCard.classList.remove('flipped');
         });
     });
 
-    // Flip card functionality for mobile
-    serviceCards.forEach(card => {
-        let touchTimer;
-        card.addEventListener('touchstart', function() {
-            this.classList.add('flipped');
-        });
+    function addMobileCloseFunctionality() {
+        if (window.innerWidth <= 768) {
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const serviceCard = this.closest('.service-card');
+                    serviceCard.classList.remove('flipped');
+                });
+            });
+        } else {
+            closeButtons.forEach(button => {
+                button.removeEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const serviceCard = this.closest('.service-card');
+                    serviceCard.classList.remove('flipped');
+                });
+            });
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('flipped');
+                });
+            });
+        }
+    }
 
-        card.addEventListener('touchend', function() {
-            clearTimeout(touchTimer);
-            touchTimer = setTimeout(() => {
-                this.classList.remove('flipped');
-            }, 3000); // Delay to allow the user to read the content
-        });
+    addMobileCloseFunctionality();
 
-        card.addEventListener('touchmove', function() {
-            clearTimeout(touchTimer);
-            touchTimer = setTimeout(() => {
-                this.classList.remove('flipped');
-            }, 3000); // Delay to allow the user to read the content
-        });
-    });
+    window.addEventListener('resize', addMobileCloseFunctionality);
 });
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {

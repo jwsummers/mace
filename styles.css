@@ -330,6 +330,7 @@ section {
 .service-card p {
     font-size: 16px;
     color: #666;
+    padding: 10px;
 }
 
 .card-inner {
@@ -360,30 +361,34 @@ section {
     padding: 20px;
 }
 
-/* Ensure smooth transition visibility for mobile */
-.card-front, .card-back {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden; /* For Safari */
+.info-button:focus, .close-button:focus {
+    outline: none;
 }
 
-/* Additional adjustments for the front face */
-.service-card.flipped .card-front {
-    visibility: hidden;
-    transition-delay: 0.3s; /* Adjust this if necessary */
+/* Hide the close button by default */
+.close-button {
+    display: none;
 }
 
-/* Ensure the back face is visible during the flip */
-.service-card.flipped .card-back {
-    visibility: visible;
-    transition-delay: 0.3s; /* Adjust this if necessary */
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .info-button {
+        display: block;
+    }
+    .service-card.flipped .info-button {
+        display: none;
+    }
+    .service-card.flipped .close-button {
+        display: block;
+    }
 }
 
 
-.info-button {
+.info-button, .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #ccc;
+    background: #ccc; 
     color: #f71137f6;
     border: none;
     border-radius: 50%;
