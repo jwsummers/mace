@@ -71,18 +71,9 @@ nav:hover {
 }
 
 .logo {
-    width: 50px;
+    width: 150px;
     height: 50px;
     margin-right: 10px;
-}
-
-.company-name h1 {
-    font-size: 1.5rem;
-    margin-bottom: 0.2rem;
-}
-
-.company-name p {
-    font-size: 0.9rem;
 }
 
 .nav-links {
@@ -388,8 +379,8 @@ section {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #ccc;
-    color: #f71137f6;
+    background: #eee;
+    color: black;
     border: none;
     border-radius: 50%;
     width: 30px;
@@ -411,11 +402,14 @@ section {
     max-width: 800px;
     margin: 40px auto;
     animation: fadeInUp 1s ease-in-out;
+    position: relative;
+    text-align: center;
 }
 
-@keyframes fadeInUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+#about .about-logo {
+    width: 150px; 
+    height: auto;
+    margin-bottom: 10px;
 }
 
 #about h2 {
@@ -423,7 +417,6 @@ section {
     font-size: 2.5em;
     color: #0066cc;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 #about p {
