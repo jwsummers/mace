@@ -1,4 +1,4 @@
-/* General styles */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -19,17 +19,14 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    z-index: 0; /* Ensure overlay is below other elements */    
+    z-index: 0;
 }
 
-nav, .hero {
-    position: relative;
-    z-index: 2;
-}
-
+/* Header and Navigation */
 header {
     position: relative;
     background: url('/images/hero.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
     height: 100vh;
     color: white;
     text-align: center;
@@ -40,6 +37,7 @@ header {
     overflow: hidden;
     animation: fadeIn 1s ease-in-out;
     z-index: 1;
+    filter: brightness(0.7);
 }
 
 @keyframes fadeIn {
@@ -51,29 +49,29 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
     transition: background 0.3s ease;
     position: absolute;
     top: 0;
-    z-index: 3; /* Ensure nav is above the header */
+    z-index: 3;
 }
 
 nav:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 4;
 }
 
 .logo {
     width: 150px;
-    height: 50px;
-    margin-right: 10px;
+    height: auto;
 }
 
 .nav-links {
@@ -90,73 +88,23 @@ nav:hover {
 }
 
 .nav-links li a:hover {
-    color: #f71137f6; 
+    color:#007bff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .menu-icon {
     display: none;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 4; /* Ensure the menu icon is clickable */
+    z-index: 4;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: rgba(0, 0, 0, 0.8);
-        text-align: center;
-        transition: max-height 0.3s ease;
-        z-index: 3; /* Ensure nav links are above the nav */
-    }
-    
-    .nav-links.show {
-        display: flex;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .hero-content {
-        padding: 1rem;
-        margin-top: 80px; 
-    }
-    .hero h1 {
-        font-size: 2rem; 
-    }
-    .hero p {
-        font-size: 1rem; 
-    }
-    .social-media {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center; /* Center-align text */
-    }
-    .about-image {
-        margin-bottom: 20px; /* Add margin-bottom to separate image from text */
-    }
-    #about p {
-        text-align: justify; /* Justify text for better readability */
-    }
-}
-
+/* Hero Section */
 .hero {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    border-radius: 5px;
     padding: 1rem 2rem;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
@@ -165,43 +113,41 @@ nav:hover {
 .hero-content {
     max-width: 800px;
     padding: 2rem;
-    background: rgba(236, 236, 236, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     animation: slideIn 1s ease-in-out;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #666;
+    color: #ccc;
 }
 
 .hero button {
     font-size: 1.2rem;
     padding: 0.5rem 2rem;
     border: none;
-    background: #f71137f6;
+    background: #007bff;
     color: white;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
     border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero button:hover {
-    background: #b60f2a;
+    background: #0056b3;
     transform: translateY(-3px);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 @keyframes slideIn {
@@ -209,6 +155,7 @@ nav:hover {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* Social Media */
 .social-media {
     display: flex;
     justify-content: center;
@@ -217,43 +164,20 @@ nav:hover {
     gap: 20px;
 }
 
-.social-media a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
 .social-media a img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .social-media a:hover img {
     transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 768px) {
-    .hero-content {
-        padding: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    .social-media {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-
+/* Main Content */
 main {
     padding: 2rem;
     text-align: center;
@@ -263,6 +187,7 @@ section {
     margin-bottom: 2rem;
 }
 
+/* Services Section */
 #services {
     padding: 50px 20px;
     text-align: center;
@@ -341,7 +266,7 @@ section {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
-    background-color: #fff; /* Ensure both sides have a background color */
+    background-color: #fff;
 }
 
 .card-back {
@@ -351,28 +276,6 @@ section {
     justify-content: center;
     text-align: center;
     padding: 20px;
-}
-
-.info-button:focus, .close-button:focus {
-    outline: none;
-}
-
-/* Hide the close button by default */
-.close-button {
-    display: none;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 768px) {
-    .info-button {
-        display: block;
-    }
-    .service-card.flipped .info-button {
-        display: none;
-    }
-    .service-card.flipped .close-button {
-        display: block;
-    }
 }
 
 .info-button, .close-button {
@@ -389,11 +292,15 @@ section {
     font-size: large;
 }
 
-.info-button:focus {
+.info-button:focus, .close-button:focus {
     outline: none;
 }
 
+.close-button {
+    display: none; /* Hide the close button by default */
+}
 
+/* About Section */
 #about {
     padding: 50px 20px;
     background-color: #fff;
@@ -407,7 +314,7 @@ section {
 }
 
 #about .about-logo {
-    width: 150px; 
+    width: 150px;
     height: auto;
     margin-bottom: 10px;
 }
@@ -415,7 +322,7 @@ section {
 #about h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
-    color: #0066cc;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
@@ -428,11 +335,6 @@ section {
 
 #about p span {
     font-weight: bold;
-}
-
-#about p:last-of-type {
-    text-align: center;
-    margin-bottom: 0;
 }
 
 .about-content {
@@ -453,19 +355,20 @@ section {
     flex: 1;
 }
 
+/* Footer */
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 2rem;
-    border-top: 5px solid #f71137f6;
+    border-top: 5px solid #007bff;
     animation: fadeInUp 1s ease-in-out;
 }
 
 footer h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
-    color: #f71137f6;
+    color: #007bff;
     margin-bottom: 20px;
 }
 
@@ -506,7 +409,7 @@ footer form textarea {
 
 footer form button {
     padding: 0.5rem 2rem;
-    background: #f71137f6;
+    background: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -516,10 +419,104 @@ footer form button {
 }
 
 footer form button:hover {
-    background: #b60f2a;
+    background: #0056b3;
 }
 
 footer p:last-of-type {
     margin-top: 30px;
     font-size: 0.9em;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 0;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    .menu-icon {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 5;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px 0;
+        text-align: center;
+        transition: all 0.3s ease;
+        z-index: 4;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-content {
+        padding: 1rem;
+        margin-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .social-media {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 20px;
+    }
+
+    #about p {
+        text-align: justify;
+    }
+
+    .info-button {
+        display: block;
+    }
+
+    .service-card.flipped .info-button {
+        display: none;
+    }
+
+    .service-card.flipped .close-button {
+        display: block;
+    }
 }
