@@ -12,6 +12,11 @@ body {
     color: #333;
 }
 
+.highlight {
+    color: #007bff;
+    font-weight: bold;
+}
+
 .overlay {
     position: absolute;
     top: 0;
@@ -214,7 +219,7 @@ section {
     position: relative;
     perspective: 1000px;
     width: 300px;
-    height: 400px; /* Adjust height as needed */
+    height: 400px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -297,7 +302,7 @@ section {
 }
 
 .close-button {
-    display: none; /* Hide the close button by default */
+    display: none;
 }
 
 /* About Section */
