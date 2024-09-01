@@ -523,12 +523,19 @@ footer-logo {
         margin-top: 80px;
     }
 
+    .hero-content, .about-content {
+        background: rgba(255, 255, 255, 0.2);
+        filter: none;
+    }
+
     .hero h1 {
         font-size: 2rem;
+        color: #070707;
     }
 
     .hero p {
         font-size: 1rem;
+        color: #070707;
     }
 
     .social-media {
@@ -547,8 +554,13 @@ footer-logo {
         margin: 0 0 20px 0;
     }
 
+    #about h2 {
+        color: #070707;
+    }
+
     #about p {
         margin-top: 20px;
+        color: #070707;
     }
 
     .info-button {
