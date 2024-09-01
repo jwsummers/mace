@@ -8,41 +8,30 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background: url('/images/hero.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
     color: #333;
 }
+
 
 .highlight {
     color: #007bff;
     font-weight: bold;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 0;
-}
-
 /* Header and Navigation */
 header {
     position: relative;
-    background: url('/images/hero.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
-    height: 100vh;
+    height: 80px;
     color: white;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     animation: fadeIn 1s ease-in-out;
     z-index: 1;
-    filter: brightness(0.7);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 @keyframes fadeIn {
@@ -52,19 +41,14 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0.5rem 2rem;
-    background: rgba(0, 0, 0, 0.7);
     border-radius: 20px;
     transition: background 0.3s ease;
     position: absolute;
     top: 0;
     z-index: 3;
-}
-
-nav:hover {
-    background: rgba(0, 0, 0, 0.9);
 }
 
 .logo-container {
@@ -106,16 +90,20 @@ nav:hover {
 
 /* Hero Section */
 .hero {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 1rem 2rem;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
+    z-index: 1;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
     padding: 2rem;
     background: rgba(255, 255, 255, 0.1);
@@ -196,16 +184,24 @@ section {
 #services {
     padding: 50px 20px;
     text-align: center;
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffffff 30%, #96d3ff 70%, #007bff);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    color: #333;
 }
 
 #services h2 {
     font-size: 36px;
     margin-bottom: 20px;
-    color: #333;
+    color: #007bff;
+}
+
+#services p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #666;
 }
 
 .services-container {
@@ -308,14 +304,15 @@ section {
 /* About Section */
 #about {
     padding: 50px 20px;
-    background-color: #fff;
+    background: transparent;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 800px;
     margin: 40px auto;
     animation: fadeInUp 1s ease-in-out;
     position: relative;
     text-align: center;
+    color: white;
 }
 
 #about .about-logo {
@@ -327,7 +324,7 @@ section {
 #about h2 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
-    color: #007bff;
+    color: white;
     margin-bottom: 20px;
 }
 
@@ -336,6 +333,7 @@ section {
     line-height: 1.6;
     text-align: justify;
     margin-bottom: 20px;
+    flex: 1;
 }
 
 #about p span {
@@ -344,8 +342,16 @@ section {
 
 .about-content {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
     gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: slideIn 1s ease-in-out;
 }
 
 .about-image {
@@ -356,18 +362,16 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#about p {
-    flex: 1;
-}
-
 /* Footer */
 footer {
-    background: #333;
+    padding: 2rem;
     color: white;
     text-align: center;
-    padding: 2rem;
+    background: linear-gradient(135deg, #2c2c2c, #515050);
+    background-size: cover;
     border-top: 5px solid #007bff;
     animation: fadeInUp 1s ease-in-out;
+    position: relative;
 }
 
 footer h2 {
@@ -432,13 +436,22 @@ footer p:last-of-type {
     font-size: 0.9em;
 }
 
+footer-logo {
+    width: 150px;
+    height: auto;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     nav {
         width: 100%;
         justify-content: center;
         padding: 1rem 0;
-        background: rgba(0, 0, 0, 0.9);
+        background: transparent;
+    }
+
+    nav:hover {
+        background: transparent;
     }
 
     .menu-icon {
@@ -460,7 +473,7 @@ footer p:last-of-type {
         padding: 20px 0;
         text-align: center;
         transition: all 0.3s ease;
-        z-index: 4;
+        z-index: 10;
     }
 
     .nav-links li {
@@ -479,6 +492,7 @@ footer p:last-of-type {
         display: flex;
         flex-direction: column;
         align-items: center;
+        z-index: 10;
     }
 
     .hero-content {
@@ -503,14 +517,15 @@ footer p:last-of-type {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 1rem;
     }
 
     .about-image {
-        margin-bottom: 20px;
+        margin: 0 0 20px 0;
     }
 
     #about p {
-        text-align: justify;
+        margin-top: 20px;
     }
 
     .info-button {
