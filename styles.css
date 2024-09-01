@@ -20,7 +20,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    overflow-x: hidden;
 }
 
 body {
@@ -29,7 +29,6 @@ body {
     color: #333;
     overflow-x: hidden;
 }
-
 
 .highlight {
     color: #007bff;
@@ -47,7 +46,7 @@ header {
     justify-content: center;
     align-items: center;
     animation: fadeIn 1s ease-in-out;
-    z-index: 1;
+    z-index: 10; /* Increased z-index to ensure it's above other content */
     background: rgba(0, 0, 0, 0.7);
 }
 
@@ -65,14 +64,14 @@ nav {
     transition: background 0.3s ease;
     position: absolute;
     top: 0;
-    z-index: 3;
+    z-index: 15; /* Increased z-index to ensure it's above hero content */
 }
 
 .logo-container {
     position: absolute;
     top: 10px;
     left: 20px;
-    z-index: 4;
+    z-index: 20; /* Ensure the logo is always on top */
 }
 
 .logo {
@@ -102,7 +101,7 @@ nav {
     display: none;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 4;
+    z-index: 25; /* Increased z-index to ensure it is above everything else */
 }
 
 /* Hero Section */
@@ -187,12 +186,6 @@ nav {
 .social-media a:hover img {
     transform: scale(1.1);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Main Content */
-main {
-    padding: 2rem;
-    text-align: center;
 }
 
 section {
@@ -465,7 +458,7 @@ footer-logo {
     body {
         background-attachment: scroll;
     }
-    
+
     nav {
         width: 100%;
         justify-content: center;
@@ -482,7 +475,8 @@ footer-logo {
         position: absolute;
         top: 20px;
         right: 20px;
-        z-index: 5;
+        z-index: 20;
+        cursor: pointer;
     }
 
     .nav-links {
@@ -496,7 +490,7 @@ footer-logo {
         padding: 20px 0;
         text-align: center;
         transition: all 0.3s ease;
-        z-index: 10;
+        z-index: 15;
     }
 
     .nav-links li {
@@ -515,16 +509,17 @@ footer-logo {
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 10;
+        z-index: 15;
     }
 
     .hero-content {
         padding: 1rem;
         margin-top: 80px;
+        z-index: 10;
     }
 
     .hero-content, .about-content {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.7);
         filter: none;
     }
 
@@ -541,6 +536,11 @@ footer-logo {
     .social-media {
         flex-direction: column;
         gap: 10px;
+    }
+
+    #services {
+        width: 100%;
+        margin: 0;
     }
 
     .about-content {

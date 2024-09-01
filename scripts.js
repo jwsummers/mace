@@ -2,11 +2,17 @@ function scrollToContact() {
     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const navLinks = document.querySelectorAll("nav ul li a");
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinksContainer = document.querySelector('.nav-links');
+    const menuIcon = document.getElementById('menu-icon');
+    const navItems = document.querySelectorAll('.nav-links li a');
+    const infoButtons = document.querySelectorAll('.info-button');
+    const closeButtons = document.querySelectorAll('.close-button');
+    const serviceCards = document.querySelectorAll('.service-card');
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
+    // Smooth scrolling for nav links
+    navItems.forEach(link => {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
             const targetId = this.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
@@ -16,67 +22,55 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    const navLinksContainer = document.querySelector('.nav-links');
-    const menuIcon = document.querySelector('.menu-icon');
-    const navItems = document.querySelectorAll('.nav-links li a');
-
-    function toggleMenu() {
-        navLinksContainer.classList.toggle('show');
+    // Mobile menu toggle
+    if (menuIcon && navLinksContainer) {
+        menuIcon.addEventListener('click', function () {
+            navLinksContainer.classList.toggle('show');
+        });
+    } else {
+        console.error("Menu icon or nav links container not found.");
     }
 
+    // Close the menu when clicking on a nav item or leaving the nav links container
     function closeMenu() {
         navLinksContainer.classList.remove('show');
     }
-
-    menuIcon.addEventListener('click', toggleMenu);
-
-    // Optionally close the menu when the mouse leaves the nav links container
-    navLinksContainer.addEventListener('mouseleave', closeMenu);
 
     navItems.forEach(item => {
         item.addEventListener('click', closeMenu);
     });
 
+    navLinksContainer.addEventListener('mouseleave', closeMenu);
+
     // Flip card functionality
-    const infoButtons = document.querySelectorAll('.info-button');
-    const closeButtons = document.querySelectorAll('.close-button');
-    const serviceCards = document.querySelectorAll('.service-card');
+    function handleCardFlip(event) {
+        event.stopPropagation();
+        const serviceCard = this.closest('.service-card');
+        if (serviceCard) {
+            serviceCard.classList.toggle('flipped');
+        }
+    }
 
     infoButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.stopPropagation();
-            const serviceCard = this.closest('.service-card');
-            serviceCard.classList.add('flipped');
-        });
+        button.addEventListener('click', handleCardFlip);
     });
 
     closeButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.stopPropagation();
-            const serviceCard = this.closest('.service-card');
-            serviceCard.classList.remove('flipped');
-        });
+        button.addEventListener('click', handleCardFlip);
     });
 
+    // Adjust flip card behavior for mobile and desktop
     function addMobileCloseFunctionality() {
         if (window.innerWidth <= 768) {
             closeButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    const serviceCard = this.closest('.service-card');
-                    serviceCard.classList.remove('flipped');
-                });
+                button.addEventListener('click', handleCardFlip);
             });
         } else {
             closeButtons.forEach(button => {
-                button.removeEventListener('click', function(event) {
-                    event.stopPropagation();
-                    const serviceCard = this.closest('.service-card');
-                    serviceCard.classList.remove('flipped');
-                });
+                button.removeEventListener('click', handleCardFlip);
             });
             serviceCards.forEach(card => {
-                card.addEventListener('mouseleave', function() {
+                card.addEventListener('mouseleave', function () {
                     this.classList.remove('flipped');
                 });
             });
@@ -84,9 +78,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     addMobileCloseFunctionality();
-
     window.addEventListener('resize', addMobileCloseFunctionality);
 });
+
 
 document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
