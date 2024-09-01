@@ -5,12 +5,29 @@
     box-sizing: border-box;
 }
 
+#background {
+    z-index: -1;
+    background-image: url('/images/hero.jpg');
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    background: url('/images/hero.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
     color: #333;
+    overflow-x: hidden;
 }
 
 
@@ -97,7 +114,6 @@ nav {
     height: 100vh;
     padding: 1rem 2rem;
     text-align: center;
-    animation: fadeIn 3s ease-in-out;
     z-index: 1;
 }
 
@@ -118,12 +134,14 @@ nav {
     margin-bottom: 1rem;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    animation: fadeIn 3s ease-in-out;
 }
 
 .hero p {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #ccc;
+    animation: fadeIn 3s ease-in-out;
 }
 
 .hero button {
@@ -136,6 +154,7 @@ nav {
     transition: background 0.3s ease, transform 0.3s ease;
     border-radius: 5px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 3s ease-in-out;
 }
 
 .hero button:hover {
@@ -443,6 +462,10 @@ footer-logo {
 
 /* Media Queries */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+    
     nav {
         width: 100%;
         justify-content: center;
